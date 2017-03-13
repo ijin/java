@@ -52,9 +52,7 @@ end
 
 include_recipe 'java::set_java_home'
 
-package 'tar' do
-  not_if { platform_family?('mac_os_x') }
-end
+include_recipe 'tar' not_if { platform_family?('mac_os_x') }
 
 java_ark 'jdk' do
   url tarball_url
